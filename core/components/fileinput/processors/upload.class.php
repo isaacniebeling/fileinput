@@ -3,7 +3,8 @@
  * uploading class for ContentBlocks fileinput field
  */
 
-$cbPath = dirname(dirname(dirname(__FILE__))) . '/contentblocks/';
+global $modx;
+$cbPath = $modx->getOption('contentblocks.core_path',null,$modx->getOption('core_path').'components/contentblocks/');
 require_once $cbPath.'processors/content/image/upload.class.php';
 
 class ContentBlocksFileUploadProcessor extends ContentBlocksImageUploadProcessor
@@ -115,6 +116,7 @@ class ContentBlocksFileUploadProcessor extends ContentBlocksImageUploadProcessor
         return $this->success('', array(
             'url' => $this->source->getObjectUrl($this->path . $_FILES['file']['name']),
             'size' => $_FILES['file']['size'],
+            'extension' => $fileExtension,
         ));
     }
 }

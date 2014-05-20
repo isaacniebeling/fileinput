@@ -1,6 +1,7 @@
 <div class="contentblocks-field contentblocks-field-fileinput contentblocks-drop-target">
     <input type="hidden" class="url" />
     <input type="hidden" class="size" />
+    <input type="hidden" class="extension" />
     <div class="contentblocks-field-actions"></div>
 
     <label>{%=o.name%}</label>

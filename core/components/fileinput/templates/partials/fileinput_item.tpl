@@ -1,6 +1,7 @@
 <li id="{%=o.id%}" class="contentblocks-field-fileinput_file">
     <input type="hidden" class="url" value="{%=o.url%}">
     <input type="hidden" class="size" value="{%=o.size%}">
+    <input type="hidden" class="extension" value="{%=o.extension%}">
     <div class="contentblocks-field-fileinput_file-view">
         <span class="file-url">{%=o.url%}</span>
     </div>

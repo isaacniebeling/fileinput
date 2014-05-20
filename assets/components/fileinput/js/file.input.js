@@ -71,12 +71,14 @@
             input.fileCount++;
             var fileId = dom.attr('id') + '-file' + input.fileCount;
             var size = fileData.size;
+            var extension = fileData.ext;
 
             this.addFile({
                 url: url,
                 title: fileData.filename,
                 id: fileId,
-                size: size
+                size: size,
+                extension: extension
             });
         };
 
@@ -122,13 +124,14 @@
 
                     input.fileCount++;
                     var fileId = id + '-file' + input.fileCount;
-
+                    data.files[0].ext = data.files[0].name.split('.').pop();
                     // Add file to the page
                     input.addFile({
                         title: data.files[0].name,
                         url: '',
                         id: fileId,
-                        size: data.files[0].size
+                        size: data.files[0].size,
+                        extension: data.files[0].ext
                     });
                     data.domId = '#' + fileId;
 
@@ -153,6 +156,7 @@
                         dom.find('.url').val(record.url);
                         dom.find('.file-url').text(record.url);
                         dom.find('.size').val(record.size);
+                        dom.find('.extension').val(record.extension);
                         dom.removeClass('uploading');
                     }
                     else {
@@ -218,7 +222,8 @@
                     data = {
                     url: $file.find('.url').val(),
                     title: $file.find('.title').val(),
-                    size: $file.find('.size').val()
+                    size: $file.find('.size').val(),
+                    extension: $file.find('.extension').val()
                 };
                 files.push(data);
             });
