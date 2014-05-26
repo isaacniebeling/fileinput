@@ -161,7 +161,7 @@
                     }
                     else {
                         var message = _('contentblocks.upload_error', {file: data.files[0].filename, message:  data.result.message});
-                        if (data.files[0].size > 1048576*1.5) {
+                        if (data.files[0].size > MODx.config.upload_maxsize) {
                             message += _('contentblocks.upload_error.file_too_big');
                         }
                         alert(message);
@@ -175,7 +175,7 @@
 
                 fail: function(e, data) {
                     var message = _('contentblocks.upload_error', {file: data.files[0].filename, message:  data.result.message});
-                    if (data.files[0].size > 1048576*1.5) {
+                    if (data.files[0].size > MODx.config.upload_maxsize) {
                         message += _('contentblocks.upload_error.file_too_big');
                     }
                     alert(message);
