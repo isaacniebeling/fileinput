@@ -116,7 +116,7 @@ class fileInput extends cbBaseInput {
                 'key' => 'directory',
                 'fieldLabel' => $this->modx->lexicon('fileinput.directory'),
                 'xtype' => 'textfield',
-                'default' => 'files',
+                'default' => 'assets/uploads/files',
                 'description' => $this->modx->lexicon('fileinput.directory.description')
             ),
             array(
@@ -146,13 +146,14 @@ class fileInput extends cbBaseInput {
 
         $output = array();
         $idx = 1;
-        foreach ($data['files'] as $img) {
-            $img = array_merge($settings, $img);
-            $img['idx'] = $idx;
-            $output[] = $this->contentBlocks->parse($rowTpl, $img);
+        foreach ($data['files'] as $file) {
+            $file = array_merge($settings, $file);
+            $file['idx'] = $idx;
+            $output[] = $this->contentBlocks->parse($rowTpl, $file);
             $idx++;
         }
         $output = implode('', $output);
+        $settings['total'] = count($data['files']);
         $settings['files'] = $output;
         return $this->contentBlocks->parse($wrapperTpl, $settings);
     }
