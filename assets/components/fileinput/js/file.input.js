@@ -107,6 +107,7 @@
                 progressInterval: 250,
                 paramName: 'file',
                 multiple: true,
+                pasteZone: null,
 
                 /**
                  * Add an item to the upload queue.
